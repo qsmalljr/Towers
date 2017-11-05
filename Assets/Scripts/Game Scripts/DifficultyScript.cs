@@ -63,7 +63,7 @@ public class DifficultyScript : MonoBehaviour {
         InvokeRepeating("manaTicker", 0.5f, 0.25f);
 
         //give the player a coin to upgrade every 3 levels
-        if (nextLevel % 2 == 0)
+        if (nextLevel % 1 == 0)
             PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") + 1);
 
         if (nextLevel == 1)
