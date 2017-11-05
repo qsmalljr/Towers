@@ -172,11 +172,11 @@ public class UnitSpawn : MonoBehaviour {
         PlayerPrefs.SetFloat("BasicMeleeHealth", 10f);
         PlayerPrefs.SetFloat("BasicMeleeDamage", 2f);
 
-        PlayerPrefs.SetFloat("BasicRangedHealth", 5f);
+        PlayerPrefs.SetFloat("BasicRangedHealth", 8f);
         PlayerPrefs.SetFloat("BasicRangedDamage", 1.5f);
 
-        PlayerPrefs.SetFloat("MeleeTwoHealth", 20f);
-        PlayerPrefs.SetFloat("MeleeTwoDamage", 3f);
+        PlayerPrefs.SetFloat("MeleeTwoHealth", 25f);
+        PlayerPrefs.SetFloat("MeleeTwoDamage", 5f);
     }
 
     public void updateStats()

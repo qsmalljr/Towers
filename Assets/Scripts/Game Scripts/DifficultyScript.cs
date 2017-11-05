@@ -11,6 +11,7 @@ public class DifficultyScript : MonoBehaviour {
     public Text levelTextBox;
     public GameObject upgradePanel;
     public GameObject gameUI;
+    public GameObject victoryPanel;
     public bool effectMuted;
 
 
@@ -77,7 +78,14 @@ public class DifficultyScript : MonoBehaviour {
             levelFive();
         else if (nextLevel == 6)
             levelSix();
-
+        else if (nextLevel == 7)
+            levelSeven();
+        else if (nextLevel == 8)
+            levelEight();
+        else if (nextLevel == 9)
+            levelNine();
+        else if (nextLevel == 10)
+            levelTen();
     }
 
     private void Update()
@@ -134,7 +142,13 @@ public class DifficultyScript : MonoBehaviour {
             //bring up upgrade's panel
             //playLevelMain();
             gameUI.SetActive(false);
-            upgradePanel.SetActive(true);
+            if(nextLevel == 11)
+            {
+                //set the victory panel active
+                victoryPanel.SetActive(true);
+            }
+            else
+                upgradePanel.SetActive(true);
         }
     }
 
@@ -146,7 +160,6 @@ public class DifficultyScript : MonoBehaviour {
         enemySpawnQueue.Enqueue(unitSpawn.basicMeleeEnemy);
         numToSpawn.Enqueue(5);
         delayTimes.Enqueue(3);
-
     }
 
     private void levelTwo()
@@ -188,7 +201,7 @@ public class DifficultyScript : MonoBehaviour {
         numToSpawn.Enqueue(4);
         delayTimes.Enqueue(3);
 
-        enemySpawnQueue.Enqueue(unitSpawn.basicRangedEnemy);
+        enemySpawnQueue.Enqueue(unitSpawn.meleeEnemyTwo);
         numToSpawn.Enqueue(3);
         delayTimes.Enqueue(3);
     }
@@ -197,7 +210,7 @@ public class DifficultyScript : MonoBehaviour {
     {
         unitSpawn.mana = 600;
 
-        enemySpawnQueue.Enqueue(unitSpawn.basicMeleeEnemy);
+        enemySpawnQueue.Enqueue(unitSpawn.basicRangedEnemy);
         numToSpawn.Enqueue(4);
         delayTimes.Enqueue(3);
 
@@ -206,11 +219,75 @@ public class DifficultyScript : MonoBehaviour {
         delayTimes.Enqueue(3);
 
         enemySpawnQueue.Enqueue(unitSpawn.basicMeleeEnemy);
-        numToSpawn.Enqueue(4);
+        numToSpawn.Enqueue(3);
         delayTimes.Enqueue(3);
     }
 
     private void levelSix()
+    {
+        unitSpawn.mana = 650;
+
+        enemySpawnQueue.Enqueue(unitSpawn.basicRangedEnemy);
+        numToSpawn.Enqueue(4);
+        delayTimes.Enqueue(3);
+
+        enemySpawnQueue.Enqueue(unitSpawn.basicRangedEnemy);
+        numToSpawn.Enqueue(4);
+        delayTimes.Enqueue(3);
+
+        enemySpawnQueue.Enqueue(unitSpawn.basicMeleeEnemy);
+        numToSpawn.Enqueue(1);
+        delayTimes.Enqueue(3);
+    }
+
+    private void levelSeven()
+    {
+        unitSpawn.mana = 800;
+
+        enemySpawnQueue.Enqueue(unitSpawn.meleeEnemyTwo);
+        numToSpawn.Enqueue(4);
+        delayTimes.Enqueue(3);
+
+        enemySpawnQueue.Enqueue(unitSpawn.meleeEnemyTwo);
+        numToSpawn.Enqueue(4);
+        delayTimes.Enqueue(3);
+    }
+
+    private void levelEight()
+    {
+        unitSpawn.mana = 800;
+
+        enemySpawnQueue.Enqueue(unitSpawn.basicMeleeEnemy);
+        numToSpawn.Enqueue(5);
+        delayTimes.Enqueue(3);
+
+        enemySpawnQueue.Enqueue(unitSpawn.meleeEnemyTwo);
+        numToSpawn.Enqueue(3);
+        delayTimes.Enqueue(3);
+
+        enemySpawnQueue.Enqueue(unitSpawn.meleeEnemyTwo);
+        numToSpawn.Enqueue(3);
+        delayTimes.Enqueue(3);
+    }
+
+    private void levelNine()
+    {
+        unitSpawn.mana = 900;
+
+        enemySpawnQueue.Enqueue(unitSpawn.basicRangedEnemy);
+        numToSpawn.Enqueue(4);
+        delayTimes.Enqueue(3);
+
+        enemySpawnQueue.Enqueue(unitSpawn.meleeEnemyTwo);
+        numToSpawn.Enqueue(3);
+        delayTimes.Enqueue(3);
+
+        enemySpawnQueue.Enqueue(unitSpawn.meleeEnemyTwo);
+        numToSpawn.Enqueue(4);
+        delayTimes.Enqueue(3);
+    }
+
+    private void levelTen()
     {
         unitSpawn.mana = 1000;
 

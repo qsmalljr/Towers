@@ -15,10 +15,10 @@ public class UpgradeButtons : MonoBehaviour {
         }
         PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") - 1); //subtract a coin
         float currentDamage = PlayerPrefs.GetFloat(playerPref);
-        if (currentDamage >= 20) { //enforcing a cap to number of upgrades in damage category
+        if (currentDamage >= 9) { //enforcing a cap to number of upgrades in damage category
             return;
         }
-        float upgradedDamage = currentDamage + 2;
+        float upgradedDamage = currentDamage + .5f;
         PlayerPrefs.SetFloat(playerPref, upgradedDamage);
         text.text = PlayerPrefs.GetFloat(playerPref).ToString(); //updating displayed damage
     }
@@ -30,7 +30,7 @@ public class UpgradeButtons : MonoBehaviour {
         }
         PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") - 1); //subtract a coin
         float currentHealth = PlayerPrefs.GetFloat(playerPref);
-        if (currentHealth >= 20) //enforcing a cap to number of upgrades in health category
+        if (currentHealth >= 38) //enforcing a cap to number of upgrades in health category
         {
             return;
         }
