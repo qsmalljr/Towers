@@ -20,6 +20,7 @@ public class UnitSpawn : MonoBehaviour {
     public GameObject meleeEnemyThree;
     public GameObject basicRangedEnemy;
     public GameObject rangedEnemy;
+    public GameObject boss;
 
     //UI Components
     public Text manaBox;

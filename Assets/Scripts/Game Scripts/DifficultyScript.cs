@@ -75,6 +75,8 @@ public class DifficultyScript : MonoBehaviour {
             levelFour();
         else if (nextLevel == 5)
             levelFive();
+        else if (nextLevel == 6)
+            levelSix();
 
     }
 
@@ -101,10 +103,14 @@ public class DifficultyScript : MonoBehaviour {
             {
                 StartCoroutine(unitSpawn.spawnUnit(unitToSpawn, n, false, delay));
             }
+            else if (unitToSpawn.Equals(unitSpawn.boss))
+            {
+                StartCoroutine(unitSpawn.spawnUnit(unitToSpawn, n, false, delay));
+            }
         }
         //if the enemy queue is empty and a friendly unit hits edge of screen, go to next level
-        //enemyUnits = GameObject.FindGameObjectsWithTag("Enemy");
-        if(enemySpawnQueue.Count == 0 && friendlyHitEdge)
+        enemyUnits = GameObject.FindGameObjectsWithTag("Enemy");
+        if(enemySpawnQueue.Count == 0 && friendlyHitEdge && enemyUnits.Length <= 0)
         {
             //increment level on
             nextLevel += 1;
@@ -206,7 +212,11 @@ public class DifficultyScript : MonoBehaviour {
 
     private void levelSix()
     {
+        unitSpawn.mana = 1000;
 
+        enemySpawnQueue.Enqueue(unitSpawn.boss);
+        numToSpawn.Enqueue(1);
+        delayTimes.Enqueue(3);
     }
 
 }
